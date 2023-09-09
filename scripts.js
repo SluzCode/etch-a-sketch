@@ -52,7 +52,7 @@ for (let j = 0; j < numOfRows; j++) {
     // arrayDivChild[i].style.backgroundColor = 'orange';
     arrayDivChild[i].className = 'column' + i;
 
-    arrayDivChild[i].className = 'tileStyle';
+    arrayDivChild[i].className = 'tile';
 
     // arrayDivChild[i].className = 'columnStyle';
 
@@ -63,4 +63,47 @@ for (let j = 0; j < numOfRows; j++) {
 }
 
 // const nodeList = document.body.childNodes;
-const tiles = document.querySelectorAll('.tileStyle');
+const tiles = document.querySelectorAll('.tile');
+tiles.forEach(tile => tile.addEventListener(
+  "mouseover",
+  (event) => {
+    // highlight the mouseover target
+    event.target.style.background = "darkgreen";
+    console.log('hovered')
+
+    // reset the color after a short delay
+    setTimeout(() => {
+      event.target.style.background = "";
+    }, 500);
+  },
+  false,
+));
+// This code is from the drum kit and should be useful here
+
+function changeColor(e){
+  const audio = document.querySelector(`audio[data-key="${e.key}"]`)
+  const key = document.querySelector(`.key[data-key="${e.key}"]`)
+  if(!audio) return;
+  // console.log(e.key);
+  // console.log(audio);
+  // console.log(key);
+  audio.currentTime = 0;
+  audio.play();
+
+  key.classList.add('playing');
+}
+
+function removeTransition(e){
+  if(e.propertyName !== 'transform') return;
+  
+  
+  this.classList.remove('playing');
+  console.log(this);
+}
+
+
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => key.addEventListener('transitionend',removeTransition));
+
+
+// window.addEventListener('keydown',playSound)

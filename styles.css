@@ -24,13 +24,13 @@ body{
 	gap: 10px;
 }
 
-.tileStyle {
+.tile {
 	display: flex;
     flex-direction: column;
 	flex:auto;
 	background-color: rgb(192, 139, 25);
 }
 
-div.tileStyle:hover{
+/* div.tile:hover{
 	background-color: rgb(29, 90, 29);
-}
+} */
