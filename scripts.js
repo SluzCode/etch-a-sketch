@@ -48,7 +48,7 @@ let arrayDivChild = new Array();
 for (let j = 0; j < numOfRows; j++) {
   for (let i = 0; i < numOfColumns; i++) {
     arrayDivChild[i] = document.createElement('div');
-    arrayDivChild[i].id = 'column' + j;
+    arrayDivChild[i].id = 'row' + i + 'column' + j;
     // arrayDivChild[i].style.backgroundColor = 'orange';
     arrayDivChild[i].className = 'column' + i;
 
@@ -63,3 +63,4 @@ for (let j = 0; j < numOfRows; j++) {
 }
 
 // const nodeList = document.body.childNodes;
+const tiles = document.querySelectorAll('.tileStyle');
