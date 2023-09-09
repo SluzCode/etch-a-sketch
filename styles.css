@@ -29,8 +29,13 @@ body{
     flex-direction: column;
 	flex:auto;
 	background-color: rgb(192, 139, 25);
+	transition: all 1s ease;
 }
 
 /* div.tile:hover{
 	background-color: rgb(29, 90, 29);
 } */
+
+.hovered {
+background-color: rgb(35, 97, 15);
+}

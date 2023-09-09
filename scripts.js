@@ -68,42 +68,49 @@ tiles.forEach(tile => tile.addEventListener(
   "mouseover",
   (event) => {
     // highlight the mouseover target
-    event.target.style.background = "darkgreen";
-    console.log('hovered')
+    // event.target.style.background = "darkgreen";
+    // console.log('hovered')
+
+    tile.classList.add('hovered');
+    // console.log(tile);
 
     // reset the color after a short delay
-    setTimeout(() => {
-      event.target.style.background = "";
-    }, 500);
+
+    // setTimeout(() => {
+    //   // event.target.style.background = "";
+    //   tile.classList.remove('hovered');
+    // }, 500);
   },
   false,
 ));
 // This code is from the drum kit and should be useful here
 
-function changeColor(e){
-  const audio = document.querySelector(`audio[data-key="${e.key}"]`)
-  const key = document.querySelector(`.key[data-key="${e.key}"]`)
-  if(!audio) return;
-  // console.log(e.key);
-  // console.log(audio);
-  // console.log(key);
-  audio.currentTime = 0;
-  audio.play();
+// function changeColor(e){
+//   const audio = document.querySelector(`audio[data-key="${e.key}"]`)
+//   const key = document.querySelector(`.key[data-key="${e.key}"]`)
+//   if(!audio) return;
+//   // console.log(e.key);
+//   // console.log(audio);
+//   // console.log(key);
+//   audio.currentTime = 0;
+//   audio.play();
 
-  key.classList.add('playing');
-}
+//   key.classList.add('playing');
+// }
+
+tiles.forEach(tile => tile.addEventListener('transitionend', removeTransition));
 
 function removeTransition(e){
-  if(e.propertyName !== 'transform') return;
+  if(e.propertyName !== 'background-color') return;
   
   
-  this.classList.remove('playing');
-  console.log(this);
+  this.classList.remove('hovered');
+  // console.log(this);
 }
 
 
-const keys = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitionend',removeTransition));
+// const keys = document.querySelectorAll('.key');
+// keys.forEach(key => key.addEventListener('transitionend',removeTransition));
 
 
 // window.addEventListener('keydown',playSound)
