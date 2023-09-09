@@ -1,0 +1,10 @@
+body{
+	background-color: rgb(29, 29, 29);
+	color: rgb(122, 122, 122);
+	/* border: 2px dotted white; */
+}
+
+#container{
+	/* align-items: center; */
+	text-align: center;
+}
