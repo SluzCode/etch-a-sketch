@@ -28,7 +28,11 @@ create 5 divs for each row
 const easContainer = document.querySelector('#easContainer');
 
 
-let numOfRows = 10;
+function generateGrid(numOfRows,numOfColumns){
+
+// let numOfRows = 10;
+
+easContainer.innerHTML = "";
 
 let arrayDiv = new Array();
 for (let i = 0; i < numOfRows; i++) {
@@ -39,10 +43,10 @@ for (let i = 0; i < numOfRows; i++) {
 
   arrayDiv[i].className = 'rowStyle';
 
-  document.body.appendChild(arrayDiv[i]);
+  easContainer.appendChild(arrayDiv[i]);
 }
 
-let numOfColumns = 10;
+// let numOfColumns = 10;
 
 let arrayDivChild = new Array();
 for (let j = 0; j < numOfRows; j++) {
@@ -61,54 +65,38 @@ for (let j = 0; j < numOfRows; j++) {
     // console.log(document.querySelector(`#row${i}`));
   }
 }
+addListener()
+// return easContainer;
+}
 
+generateGrid(10,10);
 // const nodeList = document.body.childNodes;
+
+function addListener(){
+
+
 const tiles = document.querySelectorAll('.tile');
+
 tiles.forEach(tile => tile.addEventListener(
   "mouseover",
   (event) => {
     // highlight the mouseover target
-    // event.target.style.background = "darkgreen";
     // console.log('hovered')
-
     tile.classList.add('hovered');
     // console.log(tile);
-
-    // reset the color after a short delay
-
-    // setTimeout(() => {
-    //   // event.target.style.background = "";
-    //   tile.classList.remove('hovered');
-    // }, 500);
   },
   false,
 ));
-// This code is from the drum kit and should be useful here
-
-// function changeColor(e){
-//   const audio = document.querySelector(`audio[data-key="${e.key}"]`)
-//   const key = document.querySelector(`.key[data-key="${e.key}"]`)
-//   if(!audio) return;
-//   // console.log(e.key);
-//   // console.log(audio);
-//   // console.log(key);
-//   audio.currentTime = 0;
-//   audio.play();
-
-//   key.classList.add('playing');
-// }
 
 tiles.forEach(tile => tile.addEventListener('transitionend', removeTransition));
 
 function removeTransition(e){
-  if(e.propertyName !== 'background-color') return;
-  
-  
+  if(e.propertyName !== 'background-color') return; 
   this.classList.remove('hovered');
   // console.log(this);
 }
-
-
+return tiles;
+}
 // const keys = document.querySelectorAll('.key');
 // keys.forEach(key => key.addEventListener('transitionend',removeTransition));
 
