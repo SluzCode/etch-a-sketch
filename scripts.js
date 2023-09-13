@@ -101,21 +101,16 @@ function addListener() {
     false,
   ));
 
-  // tiles.forEach(tile => tile.addEventListener('transitionend', removeTransition));
+  tiles.forEach(tile => tile.addEventListener('transitionend', removeTransition));
 
   function removeTransition(e) {
     if (e.propertyName !== 'background-color') return;
-    this.classList.remove('hovered');
+    // this.classList.remove('hovered');
     this.classList.remove('fadeout');
     // console.log(this.classList);
   }
   return tiles;
 }
-// const keys = document.querySelectorAll('.key');
-// keys.forEach(key => key.addEventListener('transitionend',removeTransition));
-
-
-// window.addEventListener('keydown',playSound)
 
 
 function getValue() {

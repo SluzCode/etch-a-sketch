@@ -17,6 +17,8 @@ body {
 	flex-direction: column;
 	align-items: stretch;
 	height: 100vh;
+	background-color: rgb(192, 139, 25);
+
 }
 
 .rowStyle {
@@ -46,6 +48,7 @@ body {
 
 .hovered {
 background-color: rgb(35, 97, 15);
+border-radius: 50%;
 }
 
 
